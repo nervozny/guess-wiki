@@ -164,7 +164,7 @@ rstr = '|'.join(exclude(article_title)) # condition for contains
 df = pd.DataFrame(bw, columns=['word']).groupby('word').size().sort_values(ascending=False)
 df = df[~df.isin(df[df.index.str.contains(rstr)])]
 
-st.write('Article url:', my_url)
+
 
 left_col, mid_col, right_col = st.columns(3)
 with left_col:
@@ -173,4 +173,5 @@ with left_col:
     plt.axis('off')
     st.pyplot(fig)
 
+st.write('Article url:', my_url)
 
