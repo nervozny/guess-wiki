@@ -159,6 +159,7 @@ stop_words = list(stop())
 # #remove stop words, punctuation, numbers, uppercase and modal verbs
 bw = [decontracted(i) for i in my_text if i.isalpha() and not i in (modal_verbs + stop_words)]
 bw = lemm(bw)
+bw = [i for i, j in nltk.pos_tag(bw) if j in ['NN', 'NNP']] # only nouns left (arguable). Otherwise you get france/french, japan/japanese etc in clue words. However, we lose 50% of dataset
 rstr = '|'.join(exclude(article_title)) # condition for contains
 
 df = pd.DataFrame(bw, columns=['word']).groupby('word').size().sort_values(ascending=False)
