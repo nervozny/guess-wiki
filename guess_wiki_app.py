@@ -81,8 +81,7 @@ def get_header_text(my_text):
 
 def combine_paras_heads(paras, heads):
     '''combine paragraphs & headers'''
-    my_text = [val for pair in zip(paras, heads) for val in pair]
-    my_text = ' '.join(my_text)
+    my_text = str(paras + heads)
     return my_text
 
 def clean_foot(my_text):
@@ -138,7 +137,7 @@ with col1:
     article_title = st.text_input("Enter the article title:", key="my_url", value = 'star wars')
 
 with col2:
-    n_show = st.number_input('Number of clue words', min_value=2, max_value=20, value=4)
+    n_show = st.number_input('Number of clue words', min_value=1, max_value=30, value=4)
 #============================================================================
 
 modal_verbs = ['can', 'could', 'may', 'might', 'shall', 'should', 'will', 'would', 'must']
