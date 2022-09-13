@@ -134,7 +134,8 @@ wiki_prefix = 'https://en.wikipedia.org/wiki/'
 col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
-    article_title = st.text_input("Enter the article title:", key="my_url", value = 'star wars')
+    article_title = st.text_input("Enter the article title:", key="my_url", value = 'star wars').lower()
+    
 
 with col2:
     n_show = st.number_input('Number of clue words', min_value=1, max_value=22, value=4)
