@@ -97,6 +97,8 @@ def stop():
     stop_words = stopwords.words('english')
     stop_words.append('utc')
     stop_words.append('also')
+    stop_words.append('time')
+
     stop = set(stop_words + list(string.punctuation))
     return stop
 
